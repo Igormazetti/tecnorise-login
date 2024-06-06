@@ -37,7 +37,7 @@ function Login() {
 
   useEffect(() => {
     if (user.error) {
-      toast.error("Username ou password incorretos!");
+      toast.error("Falha ao realizar login");
     }
   }, [user.error]);
 
