@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import { setUser } from "./actions";
+import { setLoginError, setUser } from "./actions";
 import { client } from "../../client";
 import { LOGIN } from "../../graphql/Query";
 
@@ -26,7 +26,8 @@ function* login(action: RegisterPayload) {
     yield put(setUser({ token, id }));
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
-    yield put({ type: "USER_LOGIN_FAILED", message: e.message });
+    console.log(e);
+    yield put(setLoginError(true));
   }
 }
 

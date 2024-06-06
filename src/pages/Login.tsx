@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { User } from "../redux/login/reducer";
+import { toast } from "react-toastify";
 
 type Inputs = {
   username: string;
@@ -15,6 +16,8 @@ function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((s: { user: User }) => s.user);
+
+  console.log(user);
 
   const {
     register,
@@ -31,6 +34,12 @@ function Login() {
       navigate("/dashboard");
     }
   }, [user, navigate]);
+
+  useEffect(() => {
+    if (user.error) {
+      toast.error("Username ou password incorretos!");
+    }
+  }, [user.error]);
 
   return (
     <div className="h-screen w-screen flex justify-center items-center bg-gray-200">

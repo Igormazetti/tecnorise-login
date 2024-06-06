@@ -9,3 +9,10 @@ export const login = (username: string, password: string) => ({
   type: "@login/USER_LOGIN_REQUESTED",
   payload: { username, password },
 });
+
+export function setLoginError(error: boolean) {
+  return {
+    type: "@login/USER_LOGIN_FAILED",
+    payload: { error },
+  };
+}

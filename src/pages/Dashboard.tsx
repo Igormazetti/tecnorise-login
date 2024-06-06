@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as CompanyActions from "../redux/company/actions";
 import { CompanyDetails } from "../redux/company/actions";
 import { User } from "../redux/login/reducer";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { formatCurrency } from "../utils/currencyFormatter";
 
 type FormValues = {
@@ -144,7 +143,6 @@ export default function Dashboard() {
           Salvar alterações
         </button>
       </form>
-      <ToastContainer />
     </div>
   );
 }
